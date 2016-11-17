@@ -1,4 +1,5 @@
 <?php
+
 require 'inc/functions.php';
 // VIEW
 require 'views/header.php';
