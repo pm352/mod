@@ -1,11 +1,6 @@
 <?php
 require_once 'inc/config.php';
-require 'inc/functions.php';
-
-
-
-
-
+require_once 'inc/functions.php';
 
 // VIEW
 require 'views/header.php';
