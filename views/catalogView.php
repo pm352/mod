@@ -16,17 +16,39 @@
 
 <div class="row">
     <div class="col-md-2">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/200x200" alt="">
-        </a>
+            <img class="img-responsive" src="<?= $mvliste[0]['mov_poster'] ?>" alt="">
     </div>
     <div class="col-md-8">
-        <h3>Project One</h3>
-        <h4>Subheading</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        <h3><?= '#' . $mvliste[0]['mov_id'] ?> <a href=""><?= $mvliste[0]['mov_title'] ?></a></h3>
+        <p><?= $mvliste[0]['mov_synopsis'] ?></p>
     </div>
     <div class="col-md-2">
-        <button class="btn btn-primary">Détails</button>
+        <button class="btn btn-primary">Détails</button><br /><br />
         <button class="btn btn-primary">Modifier</button>
 	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		<?php
+		 foreach ($mvliste as $key => $value) {
+		 	//print_r($value);
+
+		 	if ($value['mov_poster']) {
+		 		foreach ($value as $test) {
+		 			var_dump($test);
+		 		}
+		 	}
+		 	//foreach ($value as $test) {
+		 		
+			//echo "<h3>" . $test . "</h3>";
+		 	//}
+
+			
+			
+		}  
+		?>
+		
+	</div>
+
 </div>
