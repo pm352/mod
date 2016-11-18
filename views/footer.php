@@ -1,5 +1,5 @@
 			<footer>
-				<div class="panel panel-primary">
+				<div class="footer">
 	  				<div class="panel-body text-center">&copy; Team MOD
 	  				</div>
 	  			</div>
