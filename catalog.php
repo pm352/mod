@@ -19,7 +19,7 @@ else {
 	var_dump($mvliste);
 }
 
-
+//VIEWS
 include_once 'views/header.php';
 include_once 'views/catalogView.php';
 include_once 'views/footer.php';

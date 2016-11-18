@@ -14,13 +14,19 @@
 
 <hr />
 
-<table>
-	<tr>
-		<td><img src="<?= $mvliste[0]['mov_poster'] ?>"></td>
-		<td><?= $mvliste[0]['mov_id']?></td>
-		<td><?= $mvliste[0]['mov_title'] ?><br /><?= $mvliste[0]['mov_synopsis']?></td>
-		
-		<td><button type="button" class="btn btn-default">Détails</button></td>
-		<td><button type="button" class="btn btn-default">Modifier</button></td>
-	</tr>
-</table>
+<div class="row">
+    <div class="col-md-2">
+        <a href="#">
+            <img class="img-responsive" src="http://placehold.it/200x200" alt="">
+        </a>
+    </div>
+    <div class="col-md-8">
+        <h3>Project One</h3>
+        <h4>Subheading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary">Détails</button>
+        <button class="btn btn-primary">Modifier</button>
+	</div>
+</div>
