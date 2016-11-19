@@ -3,9 +3,8 @@
 	<div class="col-xs-2"></div>
 	<div class="col-xs-8">
 		<div class="jumbotron">
-			<h1>Projet MOD</h1>
-			<p>La page d’accueil présente brièvement le concept et affiche en premier lieu un grand et gros champ de recherche parmi les films. Une liste non exhaustive de catégories est affichée. Le nombre de films de chaque catégorie (affichée sur l’accueil) est mis entre parenthèses à droite du nom de la catégorie. Les derniers films ajoutés seront aussi affichés avec leur affiche et leur nom.
-			</p>
+			<h2>Projet MOD</h2>
+			<p>Le projet MOD à été conçu et réalisé par la Team Master of desaster.</p>
 		</div>
 	</div> 
 	<div class="col-xs-2"></div>
@@ -27,8 +26,8 @@
 	<div class="col-xs-2"></div>
 	<div class="col-xs-8">
 		<ul class="list-inline">
-		<?php foreach ($catResult as $catName) : ?>
-			<li><a href="#"><?= $catName['cat_name']; ?></a></li>
+		<?php foreach ($catResultCount as $catNameCount) : ?>
+			<li><a href="#"><?= $catNameCount['cat_name'].' ('. $catNameCount['nb_film'].')'; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</div> 
