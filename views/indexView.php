@@ -27,30 +27,19 @@
 	<div class="col-xs-2"></div>
 	<div class="col-xs-8">
 		<ul class="list-inline">
-			<li><a href="#">Comédie(54)</a></li>
-			<li><a href="#">Aventure(21)</a></li>
-			<li><a href="#">Thriller(54)</a></li>
-			<li><a href="#">Romance(88)</a></li>
+		<?php foreach ($catResult as $catName) : ?>
+			<li><a href="#"><?= $catName['cat_name']; ?></a></li>
+		<?php endforeach; ?>
 		</ul>
 	</div> 
 	<div class="col-xs-2"></div>
 </div>
-
 <div class="row">
+	<!--affichage des posts limité à 4-->
+	<?php foreach ($moviesData as $moviePost) : ?>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
-		<a class="thumbnail" href="#"><img class="img-responsive" src="<?php echo $moviesData[0]['mov_poster']; ?>" alt=""></a>
-		<h3><a href="#"><?php echo $moviesData[0]['mov_title']; ?></a></h3>
+		<a class="thumbnail" href="movie.php?id=<?= $moviePost['mov_id']; ?>"><img class="img-responsive" src="<?= $moviePost['mov_poster']; ?>" alt=""></a>
+		<h3><a href="movie.php?id=<?= $moviePost['mov_id']; ?>"><?= $moviePost['mov_title']; ?></a></h3>
 	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
-		<a class="thumbnail" href="#"><img class="img-responsive" src="http://placehold.it/400x300" alt=""></a>
-		<h3><a href="#">Project Name</a></h3>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
-		<a class="thumbnail" href="#"><img class="img-responsive" src="http://placehold.it/400x300" alt=""></a>
-		<h3><a href="#">Project Name</a></h3>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
-		<a class="thumbnail" href="#"><img class="img-responsive" src="http://placehold.it/400x300" alt=""></a>
-		<h3><a href="#">Project Name</a></h3>
-	</div>
+	<?php endforeach; ?>
 </div>
