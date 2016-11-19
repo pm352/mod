@@ -38,8 +38,8 @@
 
 <div class="row">
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
-		<a class="thumbnail" href="#"><img class="img-responsive" src="http://placehold.it/400x300" alt=""></a>
-		<h3><a href="#">Project Name</a></h3>
+		<a class="thumbnail" href="#"><img class="img-responsive" src="<?php echo $moviesData[0]['mov_poster']; ?>" alt=""></a>
+		<h3><a href="#"><?php echo $moviesData[0]['mov_title']; ?></a></h3>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumb">
 		<a class="thumbnail" href="#"><img class="img-responsive" src="http://placehold.it/400x300" alt=""></a>
