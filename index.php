@@ -3,20 +3,23 @@ require_once 'inc/config.php';
 require_once 'inc/functions.php';
 
 
-/////////////////////////////////////////
-//requette pour recupérer les categories
+////////////////////////////////////////////
+//requette les categories et le nombre de film par categories
 $sql='
-	SELECT cat_name
-	FROM category
+	SELECT cat_name, count(mov_id) AS nb_film
+	FROM movies
+	LEFT JOIN category ON category.cat_id = movies.category_cat_id
+	GROUP BY cat_name
+	ORDER BY nb_film DESC
 	LIMIT 4
 	';
 
 //Exécution de ma requete SELECT
 $pdoStatement = $pdo->query($sql);
 
-//je récupère les données
-$catResult = $pdoStatement->fetchAll();
-//print_r($catResult);
+//je récupère toutes les données
+$catResultCount = $pdoStatement->fetchAll();
+//print_r($catResultCount);
 
 
 ////////////////////////////////////////////////////////////////////
