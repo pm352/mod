@@ -1,6 +1,3 @@
-<?php
-require_once 'inc/signinSql.php';
-?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -29,18 +26,9 @@ require_once 'inc/signinSql.php';
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="acceuil.php">Acceuil</a></li>
-						<li><a href="catalog.php">Catégories</a></li>
-						<li><a href="admin/movies.php">Ajout d'un film</a></li>
-					</ul>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input name="s" value="<?= isset($search)? $search:'' ?>" type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Search</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="index.php"><b>Log out</b></a></li>
+						<li><a href="#">Acceuil</a></li>
+						<li><a href="#">Catégories</a></li>
+						<li><a href="#">Ajout d'un film</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
