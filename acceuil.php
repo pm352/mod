@@ -45,7 +45,7 @@ if ($pdoStatement->execute() === false){
 else{
 	//je récupère toutes les données
 	$movieResult = $pdoStatement->fetchAll();
-	print_r($movieResult);
+	//print_r($movieResult);
 }
 
 
