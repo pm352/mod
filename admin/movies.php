@@ -1,13 +1,34 @@
 <?php
 include '../inc/config.php';
 
+$typStockageListe = array(
+	1 => 'HDD',
+	2 => 'USB',
+	3 => 'PC'
+);
+
+$actorListe = array(
+	1 => 'Simon Pegg',
+	2 => 'Nick Frost',
+	3 => 'Leonardo DiCaprio'
+);
+
+$categorieListe = array(
+	1 => 'Action',
+	2 => 'Animation',
+	3 => 'Comedy',
+	4 => 'Aventure',
+	5 => 'Science-fiction',
+	6 => 'Biographie'
+);
+
 $formOk= true;
 if(!empty($_POST)){
 
 	$titre = isset($_POST['titre']) ? trim($_POST['titre']) : '';
 	$file = isset($_POST['file']) ? trim($_POST['file']) : '';
-	$catName = isset($_POST['catName']) ? trim($_POST['catName']) : '';
-	$actName = isset($_POST['actName']) ? trim($_POST['actName']) : '';
+	$catId = isset($_POST['catId']) && is_numeric($_POST['catId'])? $_POST['catId'] : '';
+	$actId = isset($_POST['actId']) && is_numeric($_POST['actId'])? $_POST['actId'] : '';
 	$typId = isset($_POST['typId']) && is_numeric($_POST['typId']) ? $_POST['typId'] : '';
 	$description = isset($_POST['description']) ? trim($_POST['description']) : '';
 	$sortie = isset($_POST['sortie']) ? intval($_POST['sortie']) : '';
