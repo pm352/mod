@@ -115,6 +115,10 @@ if(!empty($_POST)){
 }
 
 //views
+<<<<<<< HEAD
+include '../views/headerMovies.php';
+=======
 include '../views/header.php';
+>>>>>>> refs/remotes/origin/dev
 include '../views/admin/moviesView.php';
 include '../views/footer.php';
