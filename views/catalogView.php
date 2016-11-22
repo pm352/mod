@@ -2,15 +2,8 @@
      <div class="container">   
         <div class="form-group">
             <form name="page_tri" id="page_tri" action="" method="post">
+                
                 <label for="choix">Choix page</label>
-
-
-                <select id="choix" class="form-control">
-                    <?php for ($i = 1; $i <= $resultat; $i++) : ?>
-                        <option><?= $i ?></option>
-                    <?php endfor ?>
-                </select>
-
                 <select id="choix_page" name="choix_page" class="form-control">
                     <?php for ($i = 1; $i <= $resultat; $i++) : ?>
                         <option><?= $i ?></option>
