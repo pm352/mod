@@ -5,7 +5,7 @@ include_once 'inc/config.php';
 $movId = isset($_GET['id'])? intval($_GET['id']) : 0;
 
 $sql = '
-SELECT mov_title, mov_file, cat_name, act_name, typ_name, mov_description, mov_release_date, mov_file 
+SELECT mov_title, mov_file, cat_name, act_name, typ_name, mov_description, mov_release_date
 FROM movies 
 LEFT OUTER JOIN movies_has_actors ON movies_has_actors.movies_mov_id = movies.mov_description
 LEFT OUTER JOIN actors ON actors.act_id = movies_has_actors.actors_act_id
