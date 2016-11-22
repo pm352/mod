@@ -5,27 +5,15 @@
                 
                 <label for="choix">Choix page</label>
                 <select id="choix_page" name="choix_page" class="form-control">
-                	
-
                     <?php for ($i = 1; $i <= $resultat; $i++) : ?>
                         <option value="<?= $i ?>"
-                        <?php if ($i === $page) : ?>
-
-                         selected="selected"><?= $i ?>
-                        
-                        <?php else : ?>
-
-                        ><?= $i ?>
-
-                     	<?php endif ?>
-                        	
-
-                         </option>
-
-
+	                        <?php if ($i === $page) : ?>
+	                         selected="selected"><?= $i ?>
+	                        <?php else : ?>
+	                        ><?= $i ?>
+	                     	<?php endif ?>
+                        </option>
                     <?php endfor ?>
-
-                
                 </select>
 
                 <label for="tri">Tri par date</label>
