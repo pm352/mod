@@ -5,13 +5,13 @@ $sql = "INSERT INTO movies ( mov_title, mov_file, cat_name, act_name, typ_id, mo
 
 $stmt = $pdo->prepare($sql);
 
-$stmt->bidnValue(':title', $titre);
-$stmt->bidnValue(':file', $file);
-$stmt->bidnValue(':catName', $catName);
-$stmt->bidnValue(':actName', $actName);
-$stmt->bidnValue(':typId', $typId);
-$stmt->bidnValue(':description', $description);
-$stmt->bidnValue(':sortie', $sortie);
+$stmt->bindValue(':title', $titre);
+$stmt->bindValue(':file', $file);
+$stmt->bindValue(':catName', $catName);
+$stmt->bindValue(':actName', $actName);
+$stmt->bindValue(':typId', $typId);
+$stmt->bindValue(':description', $description);
+$stmt->bindValue(':sortie', $sortie);
 
 if(!$stmt->execute()){
 	print_r($pdo->errorInfo());
