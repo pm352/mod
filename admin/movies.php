@@ -27,29 +27,55 @@ $categorieListe = array(
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-$sql = "
-	SELECT *
-	FROM movies 
-	LEFT OUTER JOIN movies_has_actors ON movies_has_actors.movies_mov_id = movies.mov_description
-	LEFT OUTER JOIN actors ON actors.act_id = movies_has_actors.actors_act_id
-	LEFT OUTER JOIN category ON category.cat_id = movies.category_cat_id
-	LEFT OUTER JOIN type_stockage ON type_stockage.typ_id = movies.type_stockage_typ_id
+
+if($id){
+	$sql = "
+		SELECT *
+		FROM movies 
+		LEFT OUTER JOIN movies_has_actors ON movies_has_actors.movies_mov_id = movies.mov_description
+		LEFT OUTER JOIN actors ON actors.act_id = movies_has_actors.actors_act_id
+		LEFT OUTER JOIN category ON category.cat_id = movies.category_cat_id
+		LEFT OUTER JOIN type_stockage ON type_stockage.typ_id = movies.type_stockage_typ_id
+		WHERE mov_id = ".$id;
+
+	$pdoStatement = $pdo -> query($sql);
+	if($pdoStatement === false){
+		print_r($pdo->errorInfo());
+	} else {
+		$moviesListe = $pdoStatement->fetch();
+	}
+
+	$movieTitre = $moviesListe['mov_title'];
+	$movieDescription = $moviesListe['mov_description'];
+	$movieFile = $moviesListe['mov_file'];
+	$movieCategorie = $moviesListe['cat_id'];
+	$movieActeurs = $moviesListe['act_id'];
+	$movieSupport = $moviesListe['typ_id'];
+	$movieSortie = $moviesListe['mov_adDate'];
+
+	$sql = "
+	UPDATE movies 
+	SET mov_title = :title, mov_description = :description, mov_file = :file, cat_id = :idCategorie, act_id = :idActeurs, typ_id = :idStockage, mov_adDate = :adDate  
 	WHERE mov_id = ".$id;
+	echo "Je vous ai modifié dans ma base de données
+	";
 
-$pdoStatement = $pdo -> query($sql);
-if($pdoStatement === false){
-	print_r($pdo->errorInfo());
-} else {
-	$moviesListe = $pdoStatement->fetch();
+	$pdoStatement = $pdo->prepare($sql);
+
+	$pdoStatement = bindValue(':title', $movieTitre);
+	$pdoStatement = bindValue(':description', $movieDescription);
+	$pdoStatement = bindValue(':file', $moveFile);
+	$pdoStatement = bindValue(':idCategorie', $movieCategorie);
+	$pdoStatement = bindValue(':idActeurs', $movieActeurs);
+	$pdoStatement = bindValue(':idStockage', $movieSupport);
+	$pdoStatement = bindValue(':adDate', $movieSortie);
+
+	if(!$pdoStatement->execute()){
+		print_r($pdo->errorInfo());
+	} else {
+		$resultat = $pdoStatement->fetchAll();
+	}
 }
-
-$movieTitre = $moviesListe['mov_title'];
-$movieDescription = $moviesListe['mov_description'];
-$movieFile = $moviesListe['mov_file'];
-$movieCategorie = $moviesListe['cat_id'];
-$movieActeurs = $moviesListe['act_id'];
-$movieSupport = $moviesListe['typ_id'];
-$movieSortie = $moviesListe['mov_adDate'];
 
 $formOk= true;
 if(!empty($_POST)){
@@ -66,15 +92,15 @@ if(!empty($_POST)){
 		echo "Il faut remplir le champ titre";
 		$formOk = false;
 	}
-
 	if(sizeof($_FILES) > 0){
 		$image = $_FILES['file'];
 		$tmp = explode ('.', $image['name']);
-		$extension = end($temp);
-		if(move_uploaded_file($image['tmp_name'], '../assets/img'.$extension)){
+		$extension = end($tmp);
+		if(move_uploaded_file($image['tmp_name'], '../assets/img.'.$extension)){
 			echo "fichier téléversé<br/>";
 		} else {
 			echo "erreur dans le téléversement<br/>";
+			$formOk = false;
 		}
 	}
 
@@ -118,15 +144,23 @@ if(!empty($_POST)){
 
 		if(!$stmt->execute()){
 			print_r($pdo->errorInfo());
+			if(sizeof($_FILES) > 0){
+				$image = $_FILES['file'];
+				$tmp = explode ('.', $image['name']);
+				$extension = end($tmp);
+				if(move_uploaded_file($image['tmp_name'], '../assets/img/img.'.$id.$extension)){
+					echo "fichier téléversé<br/>";
+				} else {
+					echo "erreur dans le téléversement<br/>";
+					$formOk = false;
+				}
+			}
 		}
 	}
 }
 
 //views
-<<<<<<< HEAD
+
 include '../views/headerMovies.php';
-=======
-include '../views/header.php';
->>>>>>> refs/remotes/origin/dev
 include '../views/admin/moviesView.php';
 include '../views/footer.php';
