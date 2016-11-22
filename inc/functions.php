@@ -35,7 +35,7 @@ function dp_sqlShowCatalog() {
     }
     return $mvliste;
 }
-$dp_sqlShowCatalog = dp_sqlShowCatalog();
+
 
 // Le nombre de pages pour la pagination
 function nbPages() {
@@ -54,22 +54,4 @@ function nbPages() {
         $nbrPages = $stmt->fetch(PDO::FETCH_ASSOC);
     }
     return $nbrPages;
-}
-$nbPages = nbPages();
-$resultat = ceil(intval($nbPages['COUNT(*)']) / 3);
-
-// Affichage du catalogue
-function showCatalog() {
-    global $dp_sqlShowCatalog;
-    foreach ( $dp_sqlShowCatalog as $key => $value) {
-        
-        echo "<tr>";
-        echo "<td style='padding-left: 15px; padding-right: 15px; padding-bottom: 15px'>" . "<a href='movie.php?id=" . $value['ID'] . "'><img src=" . $value['affiche'] . " alt='movie-poster' height='200px' width='200px'" . " /></a>" . "</td>";
-        echo "<td width='70%'>#" . $value['ID'] ." <a href='movie.php?id=" . $value['ID'] ."'>" . $value['title'] . "</a><br />" . $value['synopsis'] . " [.....]</td>";
-        echo "<td style='padding-left: 15px'><a href='movie.php?id=" . $value['ID'] . "'><input type='button' class='btn btn-primary name='detail' value='Détails' /><br /><br /></a>
-                <a href='admin/movies.php?id=" . $value['ID'] . "'><input type='button' class='btn btn-primary name='modifier' value='Modifier' /></a>
-
-                </td>";
-        echo "</tr>";
-    }
 }
