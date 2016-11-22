@@ -1,10 +1,10 @@
 <h2>Gestion du film</h2>
 <form action="" method="post">
 		<label>Titre du film: </label><br/>
-		<input type="text" name="titre" id="titre" value=""/>
+		<input type="text" name="titre" id="titre" value="<?=isset($movieTitre)? $movieTitre : ''; ?>"/>
 		<br/>
 		<label>Description: </label><br/>
-		<textarea name="description" id="description" rows="10" cols="50" value=""></textarea>
+		<textarea name="description" id="description" rows="10" cols="50"><?=isset($movieDescription)? $movieDescription : ''; ?></textarea>
 		<br/>
 		<label>Veuillez choisir votre image </label><br/>
 		<input type="file" name="file" id="file" value="">
