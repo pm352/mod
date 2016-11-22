@@ -67,7 +67,7 @@ function showCatalog() {
         echo "<td style='padding-left: 15px; padding-right: 15px; padding-bottom: 15px'>" . "<img src=" . $value['affiche'] . " alt='movie-poster' height='200px' width='200px'" . " />" . "</td>";
         echo "<td width='70%'>#" . $value['ID'] ." <a href='movie.php?id=" .$value['ID'] ."'>" . $value['title'] . "</a><br />" . $value['synopsis'] . " [.....]</td>";
         echo "<td style='padding-left: 15px'><button type='button' class='btn btn-primary'>Détails</button><br /><br />
-                <button type='button' value='' class='btn btn-primary'>Modifier</button></td>";
+                <button type='button' value='test' class='btn btn-primary'>Modifier</button></td>";
         echo "</tr>";
     }
 }
