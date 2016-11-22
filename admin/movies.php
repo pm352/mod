@@ -57,23 +57,22 @@ if($id){
 	UPDATE movies 
 	SET mov_title = :title, mov_description = :description, mov_file = :file, cat_id = :idCategorie, act_id = :idActeurs, typ_id = :idStockage, mov_adDate = :adDate  
 	WHERE mov_id = ".$id;
-	echo "Je vous ai modifié dans ma base de données
-	";
 
 	$pdoStatement = $pdo->prepare($sql);
 
-	$pdoStatement = bindValue(':title', $movieTitre);
-	$pdoStatement = bindValue(':description', $movieDescription);
-	$pdoStatement = bindValue(':file', $moveFile);
-	$pdoStatement = bindValue(':idCategorie', $movieCategorie);
-	$pdoStatement = bindValue(':idActeurs', $movieActeurs);
-	$pdoStatement = bindValue(':idStockage', $movieSupport);
-	$pdoStatement = bindValue(':adDate', $movieSortie);
+	$pdoStatement->bindValue(':title', $movieTitre);
+	$pdoStatement->bindValue(':description', $movieDescription);
+	$pdoStatement->bindValue(':file', $moveFile);
+	$pdoStatement->bindValue(':idCategorie', $movieCategorie, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':idActeurs', $movieActeurs, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':idStockage', $movieSupport, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':adDate', $movieSortie);
 
 	if(!$pdoStatement->execute()){
 		print_r($pdo->errorInfo());
 	} else {
 		$resultat = $pdoStatement->fetchAll();
+		echo "Je vous ai modifié dans ma base de données";
 	}
 }
 
@@ -81,7 +80,7 @@ $formOk= true;
 if(!empty($_POST)){
 
 	$titre = isset($_POST['titre']) ? trim($_POST['titre']) : '';
-	//$file = isset($_FILES['file']) ? $_FILES['file'] : '';
+	$file = isset($_FILES['file']) ? $_FILES['file'] : '';
 	$catId = isset($_POST['catId']) && is_numeric($_POST['catId'])? $_POST['catId'] : '';
 	$actId = isset($_POST['actId']) && is_numeric($_POST['actId'])? $_POST['actId'] : '';
 	$typId = isset($_POST['typId']) && is_numeric($_POST['typId']) ? $_POST['typId'] : '';
@@ -96,7 +95,8 @@ if(!empty($_POST)){
 		$image = $_FILES['file'];
 		$tmp = explode ('.', $image['name']);
 		$extension = end($tmp);
-		if(move_uploaded_file($image['tmp_name'], '../assets/img.'.$extension)){
+		$file = 'assets/img.'.$extension;
+		if(move_uploaded_file($image['tmp_name'], $extension)){
 			echo "fichier téléversé<br/>";
 		} else {
 			echo "erreur dans le téléversement<br/>";
