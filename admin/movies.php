@@ -54,6 +54,6 @@ if(!empty($_POST)){
 }
 
 //views
-//include '../views/header.php';
+include '../views/headerMovies.php';
 include '../views/admin/moviesView.php';
 include '../views/footer.php';
