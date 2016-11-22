@@ -1,54 +1,38 @@
 <div class="form-group">
-	<label for="choix">Choix page</label>
+    <form name="page_tri" id="page_tri" action="" method="post">
+        <label for="choix">Choix page</label>
 
-	<select id="choix" class="form-control">
-		<option></option>
-	</select>
+        <select id="choix" class="form-control">
+            <?php for ($i = 1; $i <= $resultat; $i++) : ?>
+                <option><?= $i ?></option>
+            <?php endfor ?>
+        </select>
 
-	<label for="tri">Tri par date</label>
-	<select id="tri" class="form-control">
-		<option>Ascendant</option>
-		<option>Déscendant</option>
-	</select>
+        <label for="tri">Tri par date</label>
+        <select id="tri" name="tri_date" class="form-control">
+            <option value="ASC" selected>Croissant</option>
+            <option value="DSC">Décroissant</option>
+        </select>
+    </form>
 </div>
 
 <hr />
 
-<div class="row">
-    <div class="col-md-2">
-            <img class="img-responsive" src="<?= $mvliste[0]['mov_poster'] ?>" alt="">
-    </div>
-    <div class="col-md-8">
-        <h3><?= '#' . $mvliste[0]['mov_id'] ?> <a href=""><?= $mvliste[0]['mov_title'] ?></a></h3>
-        <p><?= $mvliste[0]['mov_synopsis'] ?></p>
-    </div>
-    <div class="col-md-2">
-        <button class="btn btn-primary">Détails</button><br /><br />
-        <button class="btn btn-primary">Modifier</button>
-	</div>
+<div class="table-responsive">
+    <table class="table-responsive">			
+        <?= showCatalog() ?>
+    </table>
 </div>
 
-<div class="row">
-	<div class="col-md-8">
-		<?php
-		 foreach ($mvliste as $key => $value) {
-		 	//print_r($value);
-
-		 	if ($value['mov_poster']) {
-		 		foreach ($value as $test) {
-		 			var_dump($test);
-		 		}
-		 	}
-		 	//foreach ($value as $test) {
-		 		
-			//echo "<h3>" . $test . "</h3>";
-		 	//}
-
-			
-			
-		}  
-		?>
-		
-	</div>
-
-</div>
+<!-- Pagination -->
+<nav aria-label="pagination">
+    <ul class="pager">
+        <?php if ($page > 1) : ?>
+        <li><a href="?page=<?= $page -1 ?>"><span aria-hidden="true">&larr;</span> Précédent</a></li>
+        <?php endif ?>
+        <li> Page <?= $page ?> de <?= $resultat ?> </li>
+        <?php if ($page < $resultat) : ?>
+        <li><a href="?page=<?= $page + 1 ?>">Suivant <span aria-hidden="true">&rarr;</span></a></li>
+        <?php endif ?>
+    </ul>
+</nav>
