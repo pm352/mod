@@ -7,7 +7,7 @@
 		<textarea name="description" id="description" rows="10" cols="50"><?=isset($movieDescription)? $movieDescription : ''; ?></textarea>
 		<br/>
 		<label>Veuillez choisir votre image </label><br/>
-		<input type="file" name="file" id="file" value="">
+		<input type="file" name="file" id="file">
 		<br/>
 		<label>Catégorie: </label><br/>
 		<select name="catId">
