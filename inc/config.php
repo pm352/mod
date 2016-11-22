@@ -1,7 +1,7 @@
 <?php
 
 // Appelle le fichier de configurations DB
-include_once 'settings.php';
+require_once 'settings.php';
 
 
 // Connexion à la DB
