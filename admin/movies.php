@@ -163,4 +163,4 @@ if(!empty($_POST)){
 
 include '../views/headerMovies.php';
 include '../views/admin/moviesView.php';
-include '../views/footer.php';
+include '../views/footerMovies.php';
