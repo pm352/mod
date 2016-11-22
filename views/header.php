@@ -1,5 +1,5 @@
 <?php
-require_once 'inc/signinSql.php';
+//require_once 'inc/signinSql.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
