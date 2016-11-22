@@ -12,21 +12,27 @@
 		<input type="file" name="file" id="file">
 		<br/>
 		<label>Catégorie: </label><br/>
-		<select name="">
+		<select name="catId">
 			<option value="0">Choississez</option>
-			<option></option>
+			<?php foreach($categorieListe as $key=>$value) :?>
+			<option value="<?= $key ?>"><?= $value ?></option>
+			<?php endforeach; ?>
 		</select>
 		<br/>
 		<label>Acteurs: </label><br/>
-		<select name="">
+		<select name="actId">
 			<option value="0">Choississez</option>
-			<option></option>
+			<?php foreach($actorListe as $key=>$value) :?>
+			<option value="<?= $key ?>"><?= $value ?></option>
+			<?php endforeach; ?>
 		</select>
 		<br/>
 		<label>Support: </label><br/>
-		<select name="typ_id">
+		<select name="typId">
 			<option value="0">Choississez</option>
-			<option></option>
+			<?php foreach($typStockageListe as $key=>$value) :?>
+			<option value="<?= $key ?>"><?= $value ?></option>
+			<?php endforeach; ?>
 		</select>
 		<br/>
 		<label>Sortie: </label><br/>
