@@ -35,20 +35,20 @@ $sql = "
 	LEFT OUTER JOIN type_stockage ON type_stockage.typ_id = movies.type_stockage_typ_id
 	WHERE mov_id = ".$id;
 
-	$pdoStatement = $pdo -> query($sql);
-	if($pdoStatement === false){
-		print_r($pdo->errorInfo());
-	} else {
-		$moviesListe = $pdoStatement->fetch();
-	}
+$pdoStatement = $pdo -> query($sql);
+if($pdoStatement === false){
+	print_r($pdo->errorInfo());
+} else {
+	$moviesListe = $pdoStatement->fetch();
+}
 
-	$movieTitre = $moviesListe['mov_title'];
-	$movieDescription = $moviesListe['mov_description'];
-	$movieFile = $moviesListe['mov_file'];
-	$movieCategorie = $moviesListe['cat_id'];
-	$movieActeurs = $moviesListe['act_id'];
-	$movieSupport = $moviesListe['typ_id'];
-	$movieSortie = $moviesListe['mov_adDate'];
+$movieTitre = $moviesListe['mov_title'];
+$movieDescription = $moviesListe['mov_description'];
+$movieFile = $moviesListe['mov_file'];
+$movieCategorie = $moviesListe['cat_id'];
+$movieActeurs = $moviesListe['act_id'];
+$movieSupport = $moviesListe['typ_id'];
+$movieSortie = $moviesListe['mov_adDate'];
 
 $formOk= true;
 if(!empty($_POST)){
