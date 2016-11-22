@@ -5,8 +5,11 @@
 		<label>Titre du film: </label><br/>
 		<input type="text" name="titre" id="titre" />
 		<br/>
-		<label>Ou se trouve le document: </label><br/>
-		<input type="text" name="file" id="file">
+		<label>Description: </label><br/>
+		<textarea name="description" id="description" rows="10" cols="50"></textarea>
+		<br/>
+		<label>Image </label><br/>
+		<input type="file" name="file" id="file">
 		<br/>
 		<label>Catégorie: </label><br/>
 		<select name="">
@@ -25,9 +28,6 @@
 			<option value="0">Choississez</option>
 			<option></option>
 		</select>
-		<br/>
-		<label>Description: </label><br/>
-		<textarea name="description" id="description" rows="10" cols="50"></textarea>
 		<br/>
 		<label>Sortie: </label><br/>
 		<input type="date" name="sortie" id="sortie">
