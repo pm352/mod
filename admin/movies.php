@@ -12,7 +12,8 @@ $typStockageListe = array(
 $actorListe = array(
 	1 => 'Simon Pegg',
 	2 => 'Nick Frost',
-	3 => 'Leonardo DiCaprio'
+	3 => 'Leonardo DiCaprio',
+	4 => 'Disney'
 );
 
 $categorieListe = array(
@@ -66,8 +67,15 @@ if(!empty($_POST)){
 		$formOk = false;
 	}
 
-	if(sizeof($_FILES) == 0){
-		echo "Il faut téléverser une image";
+	if(sizeof($_FILES) > 0){
+		$image = $_FILES['file'];
+		$tmp = explode ('.', $image['name']);
+		$extension = end($temp);
+		if(move_uploaded_file($image['tmp_name'], '../assets/img'.$extension)){
+			echo "fichier téléversé<br/>";
+		} else {
+			echo "erreur dans le téléversement<br/>";
+		}
 	}
 
 	if($actId == 0){
