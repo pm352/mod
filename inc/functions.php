@@ -73,3 +73,47 @@ function showCatalog() {
         echo "</tr>";
     }
 }
+
+
+    /////////////////////////////////////////////////////////////////////
+    //fonction pour les categories et le nombre de film par categories//
+    ///////////////////////////////////////////////////////////////////
+function catPlusCount(){
+    global $pdo;
+    $sql='
+        SELECT cat_name, count(mov_id) AS nb_film
+        FROM movies
+        LEFT JOIN category ON category.cat_id = movies.category_cat_id
+        GROUP BY cat_name
+        ORDER BY nb_film DESC
+        LIMIT 4
+        ';
+
+    //Exécution de ma requete SELECT
+    $pdoStatement = $pdo->query($sql);
+
+    //je récupère toutes les données
+    $catResultCount = $pdoStatement->fetchAll();
+    //print_r($catResultCount);
+    return $catResultCount;
+}
+
+////////////////////////////////////////////////////////////////////
+//fonction pour recupérer posters, titre film des 4 derniers ajouts
+function recupPosterTitle(){
+    global $pdo;
+    $sql='
+        SELECT mov_title, mov_poster, mov_adDate, mov_id
+        FROM movies
+        ORDER BY mov_adDate DESC
+        LIMIT 4
+        ';
+
+    //Exécution de ma requete SELECT
+    $pdoStatement = $pdo->query($sql);
+
+    //je récupère les données
+    $moviesData = $pdoStatement->fetchAll();
+    //print_r($moviesData);
+    return $moviesData;
+}
