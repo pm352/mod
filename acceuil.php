@@ -12,6 +12,7 @@ $moviesData = recupPosterTitle();
 // barre de recherche - Mettre s= dans l'url
 $search="";
 $search=isset($_GET['s']) ? trim($_GET['s']):'';
+//global $pdo;
 if (!empty($search)) {
 	//requette pour la recherche
 	$sql='
@@ -27,27 +28,27 @@ if (!empty($search)) {
 		OR 	  cat_name LIKE :search
 		OR 	  act_name LIKE :search
 		';
-}
 
-//Exécution de ma requete SELECT
-$pdoStatement = $pdo->prepare($sql);
 
-//bindvalue pour la barre de recherche
-if (!empty($search)) {
-$pdoStatement->bindValue(':search', '%'.$search.'%', PDO::PARAM_INT);
-}
+	//Exécution de ma requete SELECT
+	$pdoStatement = $pdo->prepare($sql);
 
-//si erreur
-if ($pdoStatement->execute() === false){
-	print_r($pdo->errorInfo());
-}
-//sinon, je récupère les données
-else{
-	//je récupère toutes les données
-	$movieResult = $pdoStatement->fetchAll();
-	//print_r($movieResult);
-}
+	//bindvalue pour la barre de recherche
+	if (!empty($search)) {
+	$pdoStatement->bindValue(':search', '%'.$search.'%', PDO::PARAM_INT);
+	}
 
+	//si erreur
+	if ($pdoStatement->execute() === false){
+		print_r($pdo->errorInfo());
+	}
+	//sinon, je récupère les données
+	else{
+		//je récupère toutes les données
+		$movieResult = $pdoStatement->fetchAll();
+		//print_r($movieResult);
+	}
+}
 
 
 ///////////////////////

@@ -20,6 +20,6 @@ ul{
     background-color: #F5F5F5;
     margin-top: 2%
 }
-#formMovie{
-	background-color: red;
+.formMovie{
+	padding: 20px;
 }

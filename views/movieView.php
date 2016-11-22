@@ -1,4 +1,4 @@
-<div id="formMovie" class="container">
+<div class="formMovie" class="container">
 	<img src="<?= $donnees[0]['mov_poster'] ?>"/>
 	<p>Sortie en <?= substr($donnees[0]['mov_release_date'], - 10, 4) ?></p>
 	<p>Support : <?= $donnees[0]['typ_name'] ?></p>
