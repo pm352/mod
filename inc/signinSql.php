@@ -1,5 +1,5 @@
 <?php
-require_once 'inc/config.php';
+require_once dirname(__FILE__).'/config.php';
 // Formulaire soumis
 if (!empty($_POST)) {
 	$emailLogMod = isset($_POST['emailLogMod']) ? trim($_POST['emailLogMod']) : '';

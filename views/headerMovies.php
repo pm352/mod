@@ -1,6 +1,3 @@
-<?php
-//require_once 'inc/signinSql.php';
-?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -29,9 +26,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="acceuil.php">Acceuil</a></li>
-						<li><a href="catalog.php">Catégories</a></li>
-						<li><a href="admin/movies.php">Ajout d'un film</a></li>
+						<li><a href="../acceuil.php">Acceuil</a></li>
+						<li><a href="../catalog.php">Catégories</a></li>
+						<li><a href="movies.php">Ajout d'un film</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">

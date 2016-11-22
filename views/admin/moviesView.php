@@ -1,15 +1,13 @@
 <h2>Gestion du film</h2>
 <form action="" method="post">
-	<fieldset>
-	<legend>Ajout d'un film</legend>
 		<label>Titre du film: </label><br/>
-		<input type="text" name="titre" id="titre" />
+		<input type="text" name="titre" id="titre" value="<?=isset($movieTitre)? $movieTitre : ''; ?>"/>
 		<br/>
 		<label>Description: </label><br/>
-		<textarea name="description" id="description" rows="10" cols="50"></textarea>
+		<textarea name="description" id="description" rows="10" cols="50"><?=isset($movieDescription)? $movieDescription : ''; ?></textarea>
 		<br/>
-		<label>Image </label><br/>
-		<input type="file" name="file" id="file">
+		<label>Veuillez choisir votre image </label><br/>
+		<input type="file" name="file" id="file" value="">
 		<br/>
 		<label>Catégorie: </label><br/>
 		<select name="catId">
@@ -36,8 +34,7 @@
 		</select>
 		<br/>
 		<label>Sortie: </label><br/>
-		<input type="date" name="sortie" id="sortie">
+		<input type="date" name="sortie" id="sortie" value="">
 		<br/>
 		<input type="submit" value="Valider">
-	</fieldset>
 </form>
