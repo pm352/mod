@@ -1,5 +1,5 @@
 <?php
-require 'inc/config.php';
+require_once 'inc/config.php';
 // Formulaire soumis
 if (!empty($_POST)) {
 	$emailLogMod = isset($_POST['emailLogMod']) ? trim($_POST['emailLogMod']) : '';
