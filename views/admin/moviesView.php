@@ -1,5 +1,5 @@
 <h2>Gestion du film</h2>
-<form action="" method="post">
+<form enctype="multipart/form-data" action="" method="post">
 		<label>Titre du film: </label><br/>
 		<input type="text" name="titre" id="titre" value="<?=isset($movieTitre)? $movieTitre : ''; ?>"/>
 		<br/>
