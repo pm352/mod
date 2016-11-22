@@ -18,7 +18,8 @@
 
                 <label for="tri">Tri par date</label>
                 <select id="tri" name="tri_date" class="form-control">
-                    <option value="ASC" selected>Croissant</option>
+                    <option value="X">Choisissez :</option>
+                    <option value="ASC">Croissant</option>
                     <option value="DSC">Décroissant</option>
                 </select>
             </form>
@@ -30,8 +31,15 @@
             <table class="table-responsive">			
                 <?php foreach ($dp_sqlShowCatalog as $key => $value) : ?>
                 	<tr>
-                		<td style="padding-left: 15px; padding-right: 15px; padding-bottom: 15px"><a href="movie.php?id=<?= $value['ID'] ?>"><img src="<?= $value['affiche'] ?>" alt='movie-poster' height='200px' width='200px'" /></a>
-                		</td>
+                	
+                	   <td style="padding-bottom: 15px">
+                	       <a href="movie.php?id=<?= $value['ID'] ?>">
+                	       <img src="<?= $value['affiche'] ?>" alt="movie-poster" height="200px" width="200px" />
+                           </a>
+                	   </td>
+                	
+                	
+                		
                 		<td width="70%">#<?= $value['ID'] ?><a href="movie.php?id=<?= $value['ID'] ?>"> <?= $value['title'] ?></a><br /><?= $value['synopsis'] ?> [.....]
                 		</td>
                 		<td style="padding-left: 15px"><a href="movie.php?id=<?= $value['ID'] ?>"><input type="button" class="btn btn-primary" name="detail" value="Détails" /><br /><br /></a><a href="admin/movies.php?id=<?= $value['ID'] ?>"><input type="button" class="btn btn-primary" name="modifier" value="Modifier" /></a>

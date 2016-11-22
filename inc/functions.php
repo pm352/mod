@@ -14,7 +14,7 @@ function dp_sqlShowCatalog() {
 
     // Requête pour affichage des films dans 'Catalog'
     $sql = "
-	SELECT mov_id AS ID, mov_title AS title, SUBSTRING_INDEX(mov_synopsis, ' ', 20) AS synopsis, mov_poster AS affiche
+	SELECT mov_id AS ID, mov_title AS title, SUBSTRING_INDEX(mov_synopsis, ' ', 20) AS synopsis, mov_poster AS affiche, DATE_FORMAT(mov_release_date, '%d/%m/%Y') AS RelDate
     FROM movies
     LIMIT $offset, 3
     ";
