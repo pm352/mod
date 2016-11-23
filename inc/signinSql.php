@@ -39,9 +39,9 @@ if (!empty($_POST)) {
 
 				// Je vérifie le mot de passe
 				if (password_verify($passwordLogMod, $hashedPassword)) {
-					echo 'login ok<br>';
+					//echo 'login ok<br>';
 					$_SESSION['userId'] = $resList['usr_id'];
-					echo($resList['usr_id']);
+					//echo($resList['usr_id']);
 					header('Location: acceuil.php');
 				}
 				else {
@@ -55,4 +55,4 @@ if (!empty($_POST)) {
 	}
 }
 
-?></pre>
+?>
