@@ -4,6 +4,13 @@ $(document).ready(function(){
 		window.location.href="catalog.php?page="+$("#choix_page").val();
 	});
     
+
+	$("#tri").change(function(){
+		window.location.href="catalog.php?tri="+$("#tri").val();
+	});
+
+
+    /*
     $.ajax({
         method: "GET",
         url: "catalog.php",
@@ -11,6 +18,6 @@ $(document).ready(function(){
         console.log(data);
         $test = "DSC";
         console.log("Hello" + $test);
-    });
+    });*/
 
 }); //FIN JQUERY !!!!!

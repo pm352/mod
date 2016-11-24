@@ -18,7 +18,7 @@
 
                 <label for="tri">Tri par date</label>
                 <select id="tri" name="tri_date" class="form-control">
-                    <option value="X">Choisissez :</option>
+                    <option value="">Choisissez :</option>
                     <option value="ASC">Croissant</option>
                     <option value="DSC">Décroissant</option>
                 </select>
