@@ -5,7 +5,7 @@
                 
                 <label for="choix">Choix page</label>
                 <select id="choix_page" name="choix_page" class="form-control">
-                    <?php for ($i = 1; $i <= $resultat; $i++) : ?>
+                    <?php for ($i = 1; $i <= $pages; $i++) : ?>
                         <option value="<?= $i ?>"
 	                        <?php if ($i === $page) : ?>
 	                         selected="selected"><?= $i ?>
@@ -18,9 +18,9 @@
 
                 <label for="tri">Tri par date</label>
                 <select id="tri" name="tri_date" class="form-control">
-                    <option value="">Choisissez :</option>
-                    <option value="ASC">Croissant</option>
-                    <option value="DSC">Décroissant</option>
+                    <option value="" <?php if ($triDate) : ?>disabled><?php else : ?>><?php endif ?>Choisissez :</option>
+                    <option value="ASC" <?php if ($triDate == "ASC") : ?>selected><?php else : ?>><?php endif ?>Croissant</option>
+                    <option value="DESC" <?php if ($triDate == "DESC") : ?>selected><?php else : ?>><?php endif ?>Décroissant</option>
                 </select>
             </form>
         </div>
@@ -57,8 +57,8 @@
                 <?php if ($page > 1) : ?>
                 <li><a href="?page=<?= $page -1 ?>"><span aria-hidden="true">&larr;</span> Précédent</a></li>
                 <?php endif ?>
-                <li> Page <?= $page ?> de <?= $resultat ?> </li>
-                <?php if ($page < $resultat) : ?>
+                <li> Page <?= $page ?> de <?= $pages ?> </li>
+                <?php if ($page < $pages) : ?>
                 <li><a href="?page=<?= $page + 1 ?>">Suivant <span aria-hidden="true">&rarr;</span></a></li>
                 <?php endif ?>
             </ul>

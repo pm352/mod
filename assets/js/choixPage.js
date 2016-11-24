@@ -1,23 +1,15 @@
 $(document).ready(function(){
 	//console.log("Hello");
+    
 	$("#choix_page").change(function(){
-		window.location.href="catalog.php?page="+$("#choix_page").val();
+	   var page =	 window.location.href="catalog.php?page="+$("#choix_page").val();
+        console.log(page);
 	});
     
-
-	$("#tri").change(function(){
-		window.location.href="catalog.php?tri="+$("#tri").val();
+    $("#tri").change(function(){
+	   var tri = window.location.href="catalog.php?tri="+$("#tri").val();
+       console.log(tri);
 	});
-
-
-    /*
-    $.ajax({
-        method: "GET",
-        url: "catalog.php",
-    }).done(function(data) {
-        console.log(data);
-        $test = "DSC";
-        console.log("Hello" + $test);
-    });*/
-
+    
+    
 }); //FIN JQUERY !!!!!
