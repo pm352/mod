@@ -55,11 +55,11 @@
         <nav aria-label="pagination">
             <ul class="pager">
                 <?php if ($page > 1) : ?>
-                <li><a href="?page=<?= $page -1 ?>"><span aria-hidden="true">&larr;</span> Précédent</a></li>
+                <li><a href="?page=<?= $page -1 ?><?php if ($triDate) : ?>&tri=<?= $triDate ?><?php endif ?>"><span aria-hidden="true">&larr;</span> Précédent</a></li>
                 <?php endif ?>
                 <li> Page <?= $page ?> de <?= $pages ?> </li>
                 <?php if ($page < $pages) : ?>
-                <li><a href="?page=<?= $page + 1 ?>">Suivant <span aria-hidden="true">&rarr;</span></a></li>
+                <li><a href="?page=<?= $page + 1 ?><?php if ($triDate) : ?>&tri=<?= $triDate ?><?php endif ?>">Suivant <span aria-hidden="true">&rarr;</span></a></li>
                 <?php endif ?>
             </ul>
         </nav>

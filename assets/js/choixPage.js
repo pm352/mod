@@ -6,8 +6,7 @@ $(document).ready(function(){
 	});
     
     $("#tri").change(function(){
-        window.location.href="catalog.php?tri=" +$("#tri").val();
+        window.location.href="catalog.php?tri=" + $("#tri").val();
 	});
-    
     
 }); //FIN JQUERY !!!!!

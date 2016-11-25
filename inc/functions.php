@@ -6,8 +6,6 @@ function dp_sqlShowCatalog() {
     global $pdo;
     global $offset;
     global $triDate;
-    
-    print_r("habibi : " .$triDate);
 
     // Requête pour affichage des films dans 'Catalog'
     $sql = "
@@ -15,18 +13,17 @@ function dp_sqlShowCatalog() {
     FROM movies
     ";
 
-    echo "Hei<br />";
+    
     if (!$triDate == "") {
         $sql .= "ORDER BY RelDate $triDate";
-    var_dump("HEIHIN : $triDate <br />");
+    
     }
-    echo "Hei 2<br />";
+    
     $sql .= " LIMIT $offset, 3";
     
-    echo "Hei 3<br />";
+    
     $stmt = $pdo->query($sql);
-
-    echo "Hei 4<br />";
+    
     if (!$stmt) {
         print_r($pdo->errorInfo());
     }
