@@ -17,7 +17,6 @@ function dp_sqlShowCatalog() {
 
     if ($cat !== "") {
         $sql .= "WHERE cat_name = '$cat'
-                ORDER BY mov_id
         ";
     }
     
@@ -36,7 +35,6 @@ function dp_sqlShowCatalog() {
     }
     else {
         $mvliste = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($mvliste);
     }
     return $mvliste;
 }
@@ -52,8 +50,9 @@ function nbPages() {
     FROM movies
     ';
     
-    if ($cat !== "") {
-        $sql .= "WHERE cat_name = '$cat'
+    if ($cat) {
+        $sql .= "LEFT JOIN category ON category.cat_id = movies.category_cat_id
+                 WHERE cat_name = '$cat'
         ";
     }
     

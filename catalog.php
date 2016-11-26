@@ -5,7 +5,6 @@ require_once 'inc/functions.php';
 
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $cat = isset($_GET['cat']) ? trim(htmlentities($_GET['cat'])) : '';
-echo $cat;
 
 
 $offset = ($page -1) * 3;
