@@ -29,8 +29,8 @@
 		<div class="col-xs-12">
 			<ul class="list-inline">
 			<?php foreach ($catResultCount as $catNameCount) : ?>
-				<li><a href="#"><?= $catNameCount['cat_name'].' ('. $catNameCount['nb_film'].')'; ?></a></li>
-			<?php endforeach; ?>
+                <li><a href="catalog.php?cat=<?= $catNameCount['cat_name'] ?>"><?= $catNameCount['cat_name'] . '(' . $catNameCount['nb_film'] . ')' ?></a></li>
+            <?php endforeach; ?>
 			</ul>
 		</div> 
 	</div>
