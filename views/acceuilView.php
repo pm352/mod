@@ -47,3 +47,4 @@
 		<?php endforeach; ?>
 	</div>
 </div>
+<script type="text/javascript">var cat = ""; var tri = "";</script>

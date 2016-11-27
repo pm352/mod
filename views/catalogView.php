@@ -2,7 +2,7 @@
      <div class="container">
          <script type="text/javascript">
              var cat = "<?= $cat; ?>";
-             console.log("VIEW JS " + cat);
+             var tri = "<?= $triDate; ?>";
          </script>
         <div class="form-group">
             <!-- Select Box "Pages" et "Tri" -->
@@ -17,8 +17,8 @@
                 <label for="tri">Tri par date</label>
                 <select id="tri" name="tri_date" class="form-control">
                     <option value="" <?php if ($triDate) : ?>disabled><?php else : ?>><?php endif; ?>Choisissez :</option>
-                    <option value="ASC" <?php if ($triDate == "ASC") : ?>selected><?php else : ?>><?php endif; ?>Croissant</option>
-                    <option value="DESC" <?php if ($triDate == "DESC") : ?>selected><?php else : ?>><?php endif; ?>Décroissant</option>
+                    <option value="ASC" <?php if ($triDate === "ASC") : ?>selected><?php else : ?>><?php endif; ?>Croissant</option>
+                    <option value="DESC" <?php if ($triDate === "DESC") : ?>selected><?php else : ?>><?php endif; ?>Décroissant</option>
                 </select>
             </form>
         </div>
@@ -28,7 +28,7 @@
         <div class="table-responsive">
             <table class="table-responsive">
                 <!-- Affichage des films -->
-                <?php foreach ($dp_sqlShowCatalog as $key => $value) : ?>
+                <?php foreach ($dp_sqlShowCatalog as $value) : ?>
                     <tr>
                         <td style="padding-bottom: 15px"><a href="movie.php?id=<?= $value['ID'] ?>"><img src="<?= $value['affiche'] ?>" alt="movie-poster" height="200px" width="200px" /></a></td>
                         <td width="70%">#<?= $value['ID'] ?><a href="movie.php?id=<?= $value['ID'] ?>"> <?= $value['title'] ?></a><br /><?= $value['synopsis'] ?> [.....]</td>
